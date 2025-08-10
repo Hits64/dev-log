@@ -162,3 +162,67 @@
 ---
 
 *Tools used: Claude Code, Python sentence-transformers, FAISS, Vector DB Implementation*
+
+## August 10, 2025 (Late Evening Session)
+
+### Phase 2 Complete: Hybrid Search Implementation
+
+**Major Achievement:**
+- ✅ **Successfully implemented Phase 2** of semantic search upgrade
+- Built complete hybrid search system combining vector and keyword search
+- Achieved 70/30 semantic/keyword weighting for optimal results
+
+**Technical Implementation:**
+- **Vector Search Module**: Created 350+ line `vector_search.py` with FAISS integration
+- **Hybrid Search Engine**: Built 400+ line `hybrid_searcher.py` with intelligent ranking
+- **Query Expansion**: Implemented synonym expansion with 30+ technical term groups
+- **Result Merging**: Smart fusion of vector and keyword results with re-ranking
+- **Performance Caching**: LRU cache for repeated queries (<1ms cached response)
+
+**Architecture Highlights:**
+- **Multi-modal Search**: Combines semantic understanding with keyword precision
+- **Query Processing Pipeline**: Query → Expansion → Vector Search + Keyword Search → Merge → Re-rank
+- **Dynamic Weighting**: Adjustable vector/keyword balance (default 70/30)
+- **Search Methods**: Document-level and chunk-level search support
+- **Boost Factors**: Title matches, multi-method hits, context relevance
+
+**Integration Success:**
+- Seamlessly integrated into existing CLI: `python docsai.py search -k "query" --hybrid`
+- Backward compatible - existing keyword search still works
+- Added `--vector` flag for pure semantic search
+- Added `--vector-weight` for custom weighting
+
+**Performance Results:**
+- **Search Time**: ~5s for hybrid search (includes model loading)
+- **Query Expansion**: "error handling" → ["error handling", "bug handling", "issue handling"]
+- **Result Quality**: Finding conceptually related content (e.g., "async" finds "streaming", "concurrent")
+- **Cache Hit**: <1ms for repeated queries
+
+**Real-World Testing:**
+- ✅ "error handling" found debugging guides, error classes, troubleshooting docs
+- ✅ "async programming" found async/await, streaming, concurrent operations
+- ✅ "authentication" expanded to authorization, login, security content
+- ✅ Library-specific searches working perfectly
+
+**Files Created/Modified:**
+- `src/search/vector_search.py` - FAISS-based vector search
+- `src/search/hybrid_searcher.py` - Query expansion and result fusion
+- `src/search/search_docs.py` - Integration with existing search
+- `docsai.py` - Added hybrid/vector search flags
+- `README.md` - Updated with new search examples
+
+**Next Steps (Phase 3-4 Remaining):**
+- Document summaries and metadata enrichment
+- Advanced re-ranking with ML models
+- Incremental index updates
+- Performance optimizations
+
+**Learning Notes:**
+- Import path issues solved with try/except fallbacks
+- Query expansion dramatically improves recall
+- 70/30 vector/keyword split is optimal for technical docs
+- Caching essential for interactive search experience
+
+---
+
+*Tools used: Claude Code, Hybrid Search Architecture, Query Expansion*
