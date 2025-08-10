@@ -34,3 +34,28 @@
 ---
 
 *Tools used: Python, crawl4ai, GitHub CLI, Claude Code*
+
+## August 10, 2025
+
+### Development Workflow Setup
+
+**What I did:**
+- Created `CLAUDE.md` at HitsAi root level for AI assistant instructions
+- Established clear workflow: docs4ai for documentation, dev-log for progress tracking
+- Set up systematic approach for future development sessions
+
+**Key Decisions:**
+- All documentation needs should go through docs4ai first
+- Missing libraries should be added locally before use
+- dev-log updates are mandatory after significant work
+- Clear separation: docs4ai (tools), dev-log (journal), individual projects
+
+**Benefits:**
+- Consistent workflow across AI-assisted sessions
+- Local-first documentation approach
+- Clear progress tracking
+- Better context preservation between sessions
+
+---
+
+*Tools used: Claude Code, Git*
